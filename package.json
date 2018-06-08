@@ -1,0 +1,10 @@
+{
+  "name": "node_orient",
+  "version": "0.1.0",
+  "devDependencies": {},
+  "dependencies": {
+    "async": "^2.6.1",
+    "lodash": "^4.17.10",
+    "orientjs": "^2.2.10"
+  }
+}
