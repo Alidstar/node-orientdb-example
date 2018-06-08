@@ -27,6 +27,4 @@ function serverExample(callback) {
     });
 }
 
-serverExample();
-
 module.exports = serverExample;

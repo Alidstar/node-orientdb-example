@@ -18,7 +18,7 @@ function classExample(callback) {
             db.class.list().then(function(classes) {
                 var existedClasses = _.map(classes, 'name');
                 console.log('There are', existedClasses);
-                done(null);
+                done();
             })
         },
         function dropClasses(done) {
@@ -42,7 +42,7 @@ function classExample(callback) {
         function createClasses(done) {
             async.series([
                 function createDataClass(pdone) {
-                    db.class.create(dataClass).then(function(res) {
+                    db.class.create(dataClass, 'V').then(function(res) {
                         console.log(res.name, 'created');
                         pdone();
                     })
@@ -111,9 +111,10 @@ function classExample(callback) {
                 done();
             })
         }
-    ], callback);
+    ], function() {
+        server.close();
+        callback();
+    });
 }
-
-classExample();
 
 module.exports = classExample;
